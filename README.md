@@ -1,1 +1,1 @@
-# berexia-trade 
+# apps/ship-management-service 
