@@ -1,0 +1,123 @@
+{
+  "properties": [
+    {
+      "name": "berexia.event.manager.consumers.ship-arrival.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable the ship arrival event consumer.",
+      "defaultValue": true
+    },
+    {
+      "name": "berexia.event.manager.consumers.dap-request.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable the DAP (Demande d'Accostage Portuaire) event consumer.",
+      "defaultValue": true
+    },
+    {
+      "name": "berexia.event.manager.rabbit.ship-arrival.queue-name",
+      "type": "java.lang.String",
+      "description": "The queue name for ship arrival events.",
+      "defaultValue": "ship-arrival-queue"
+    },
+    {
+      "name": "berexia.event.manager.rabbit.ship-arrival.exchange-name",
+      "type": "java.lang.String",
+      "description": "The exchange name for ship arrival events.",
+      "defaultValue": "ship-arrival-exchange"
+    },
+    {
+      "name": "berexia.event.manager.rabbit.ship-arrival.routing-key",
+      "type": "java.lang.String",
+      "description": "The routing key for ship arrival events.",
+      "defaultValue": "ship.arrival.event"
+    },
+    {
+      "name": "berexia.event.manager.rabbit.dap-request.queue-name",
+      "type": "java.lang.String",
+      "description": "The queue name for DAP (Demande d'Autorisation Préalable) events.",
+      "defaultValue": "dap-request-queue"
+    },
+    {
+      "name": "berexia.event.manager.rabbit.dap-request.exchange-name",
+      "type": "java.lang.String",
+      "description": "The exchange name for DAP (Demande d'Autorisation Préalable) events.",
+      "defaultValue": "dap-request-exchange"
+    },
+    {
+      "name": "berexia.event.manager.rabbit.dap-request.routing-key",
+      "type": "java.lang.String",
+      "description": "The routing key for DAP (Demande d'Autorisation Préalable) events.",
+      "defaultValue": "dap.request.event"
+    },
+    {
+      "name": "berexia.event.manager.blockchain.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Enable or disable blockchain integration.",
+      "defaultValue": true
+    },
+    {
+      "name": "berexia.event.manager.blockchain.rpc-url",
+      "type": "java.lang.String",
+      "description": "The RPC URL for the blockchain node.",
+      "defaultValue": "http://your-blockchain-node:8545"
+    },
+    {
+      "name": "berexia.event.manager.blockchain.ship-arrival-contract",
+      "type": "java.lang.String",
+      "description": "The address of the ship arrival smart contract.",
+      "defaultValue": "0x..."
+    },
+    {
+      "name": "berexia.event.manager.blockchain.dap-contract",
+      "type": "java.lang.String",
+      "description": "The address of the DAP smart contract.",
+      "defaultValue": "0x..."
+    },
+    {
+      "name": "berexia.event.manager.blockchain.private-key",
+      "type": "java.lang.String",
+      "description": "The private key to use for blockchain transactions.",
+      "defaultValue": "<your-private-key>"
+    }
+  ],
+  "hints": [
+    {
+      "name": "berexia.event.manager.consumers.ship-arrival.enabled",
+      "values": [
+        {
+          "value": true,
+          "description": "Enable the ship arrival event consumer."
+        },
+        {
+          "value": false,
+          "description": "Disable the ship arrival event consumer."
+        }
+      ]
+    },
+    {
+      "name": "berexia.event.manager.consumers.dap-request.enabled",
+      "values": [
+        {
+          "value": true,
+          "description": "Enable the DAP (Demande d'Autorisation Préalable) event consumer."
+        },
+        {
+          "value": false,
+          "description": "Disable the DAP (Demande d'Autorisation Préalable) event consumer."
+        }
+      ]
+    },
+    {
+      "name": "berexia.event.manager.blockchain.enabled",
+      "values": [
+        {
+          "value": true,
+          "description": "Enable blockchain integration."
+        },
+        {
+          "value": false,
+          "description": "Disable blockchain integration."
+        }
+      ]
+    }
+  ]
+} 

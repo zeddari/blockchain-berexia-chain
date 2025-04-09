@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.8.1">
+  <signal id="shipArrivalTimeUpdated" name="Ship Arrival Time Updated"></signal>
+  <signal id="dapStatusUpdated" name="DAP Status Updated"></signal>
+  <process id="manifestWorkflow" name="Manifest Workflow" isExecutable="true">
+    <startEvent id="startEvent" name="Start Manifest Workflow" flowable:formFieldValidation="true"></startEvent>
+    <serviceTask id="initializeWorkflow" name="Initialize Workflow" flowable:delegateExpression="${manifestWorkflowInitializeDelegate}"></serviceTask>
+    <serviceTask id="callShipArrivalApi" name="Call Ship Arrival API" flowable:delegateExpression="${manifestWorkflowShipArrivalDelegate}"></serviceTask>
+    <intermediateCatchEvent id="waitForShipArrivalEvent" name="Wait for Ship Arrival Event">
+      <signalEventDefinition signalRef="shipArrivalTimeUpdated"></signalEventDefinition>
+    </intermediateCatchEvent>
+    <serviceTask id="processShipArrivalEvent" name="Process Ship Arrival Event" flowable:delegateExpression="${manifestWorkflowShipArrivalProcessorDelegate}"></serviceTask>
+    <serviceTask id="recordShipArrivalBlockchain" name="Record Ship Arrival on Blockchain" flowable:delegateExpression="${manifestWorkflowBlockchainRecordDelegate}"></serviceTask>
+    <serviceTask id="callDapApi" name="Call DAP API" flowable:delegateExpression="${manifestWorkflowDapDelegate}"></serviceTask>
+    <intermediateCatchEvent id="waitForDapEvent" name="Wait for DAP Event">
+      <signalEventDefinition signalRef="dapStatusUpdated"></signalEventDefinition>
+    </intermediateCatchEvent>
+    <serviceTask id="processDapEvent" name="Process DAP Event" flowable:delegateExpression="${manifestWorkflowDapProcessorDelegate}"></serviceTask>
+    <serviceTask id="recordDapBlockchain" name="Record DAP on Blockchain" flowable:delegateExpression="${manifestWorkflowBlockchainDapRecordDelegate}"></serviceTask>
+    <serviceTask id="completeWorkflow" name="Complete Workflow" flowable:delegateExpression="${manifestWorkflowCompleteDelegate}"></serviceTask>
+    <endEvent id="endEvent" name="End Manifest Workflow"></endEvent>
+    <boundaryEvent id="errorBoundaryEvent" attachedToRef="callShipArrivalApi">
+      <errorEventDefinition flowable:errorVariableLocalScope="false" flowable:errorVariableTransient="false"></errorEventDefinition>
+    </boundaryEvent>
+    <serviceTask id="handleError" name="Handle Error" flowable:delegateExpression="${manifestWorkflowErrorHandlerDelegate}"></serviceTask>
+    <endEvent id="errorEndEvent" name="End Workflow with Error"></endEvent>
+    <sequenceFlow id="flow1" sourceRef="startEvent" targetRef="initializeWorkflow"></sequenceFlow>
+    <sequenceFlow id="flow2" sourceRef="initializeWorkflow" targetRef="callShipArrivalApi"></sequenceFlow>
+    <sequenceFlow id="flow3" sourceRef="callShipArrivalApi" targetRef="waitForShipArrivalEvent"></sequenceFlow>
+    <sequenceFlow id="flow4" sourceRef="waitForShipArrivalEvent" targetRef="processShipArrivalEvent"></sequenceFlow>
+    <sequenceFlow id="flow5" sourceRef="processShipArrivalEvent" targetRef="recordShipArrivalBlockchain"></sequenceFlow>
+    <sequenceFlow id="flow6" sourceRef="recordShipArrivalBlockchain" targetRef="callDapApi"></sequenceFlow>
+    <sequenceFlow id="flow7" sourceRef="callDapApi" targetRef="waitForDapEvent"></sequenceFlow>
+    <sequenceFlow id="flow8" sourceRef="waitForDapEvent" targetRef="processDapEvent"></sequenceFlow>
+    <sequenceFlow id="flow9" sourceRef="processDapEvent" targetRef="recordDapBlockchain"></sequenceFlow>
+    <sequenceFlow id="flow10" sourceRef="recordDapBlockchain" targetRef="completeWorkflow"></sequenceFlow>
+    <sequenceFlow id="flow11" sourceRef="completeWorkflow" targetRef="endEvent"></sequenceFlow>
+    <sequenceFlow id="errorFlow1" sourceRef="errorBoundaryEvent" targetRef="handleError"></sequenceFlow>
+    <sequenceFlow id="errorFlow2" sourceRef="handleError" targetRef="errorEndEvent"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_manifestWorkflow">
+    <bpmndi:BPMNPlane bpmnElement="manifestWorkflow" id="BPMNPlane_manifestWorkflow">
+      <bpmndi:BPMNShape bpmnElement="startEvent" id="BPMNShape_startEvent">
+        <omgdc:Bounds height="30.0" width="30.0" x="37.0" y="180.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="initializeWorkflow" id="BPMNShape_initializeWorkflow">
+        <omgdc:Bounds height="60.0" width="100.0" x="182.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="callShipArrivalApi" id="BPMNShape_callShipArrivalApi">
+        <omgdc:Bounds height="60.0" width="100.0" x="332.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="waitForShipArrivalEvent" id="BPMNShape_waitForShipArrivalEvent">
+        <omgdc:Bounds height="60.0" width="100.0" x="482.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="processShipArrivalEvent" id="BPMNShape_processShipArrivalEvent">
+        <omgdc:Bounds height="60.0" width="100.0" x="632.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="recordShipArrivalBlockchain" id="BPMNShape_recordShipArrivalBlockchain">
+        <omgdc:Bounds height="60.0" width="100.0" x="782.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="callDapApi" id="BPMNShape_callDapApi">
+        <omgdc:Bounds height="60.0" width="100.0" x="932.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="waitForDapEvent" id="BPMNShape_waitForDapEvent">
+        <omgdc:Bounds height="60.0" width="100.0" x="1082.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="processDapEvent" id="BPMNShape_processDapEvent">
+        <omgdc:Bounds height="60.0" width="100.0" x="1232.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="recordDapBlockchain" id="BPMNShape_recordDapBlockchain">
+        <omgdc:Bounds height="60.0" width="100.0" x="1382.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="completeWorkflow" id="BPMNShape_completeWorkflow">
+        <omgdc:Bounds height="60.0" width="100.0" x="1532.0" y="166.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endEvent" id="BPMNShape_endEvent">
+        <omgdc:Bounds height="28.0" width="28.0" x="1682.0" y="181.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="errorBoundaryEvent" id="BPMNShape_errorBoundaryEvent">
+        <omgdc:Bounds height="30.0" width="30.0" x="397.0" y="212.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="handleError" id="BPMNShape_handleError">
+        <omgdc:Bounds height="60.0" width="100.0" x="111.0" y="314.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="errorEndEvent" id="BPMNShape_errorEndEvent">
+        <omgdc:Bounds height="28.0" width="28.0" x="351.0" y="330.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="flow1" id="BPMNEdge_flow1" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="66.0" y="195.0"></omgdi:waypoint>
+        <omgdi:waypoint x="182.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow2" id="BPMNEdge_flow2" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="282.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="332.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow3" id="BPMNEdge_flow3" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="432.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="482.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow4" id="BPMNEdge_flow4" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="582.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="632.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow5" id="BPMNEdge_flow5" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="732.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="782.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow6" id="BPMNEdge_flow6" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="882.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="932.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow7" id="BPMNEdge_flow7" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="1032.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1082.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow8" id="BPMNEdge_flow8" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="1182.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1232.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow9" id="BPMNEdge_flow9" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="1332.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1382.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow10" id="BPMNEdge_flow10" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="1482.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1532.0" y="196.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="flow11" id="BPMNEdge_flow11" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="1632.0" y="196.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1682.0" y="195.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="errorFlow1" id="BPMNEdge_errorFlow1" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="30.0">
+        <omgdi:waypoint x="412.0" y="242.0"></omgdi:waypoint>
+        <omgdi:waypoint x="161.0" y="314.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="errorFlow2" id="BPMNEdge_errorFlow2" flowable:sourceDockerX="50.0" flowable:sourceDockerY="30.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="211.0" y="344.0"></omgdi:waypoint>
+        <omgdi:waypoint x="351.0" y="344.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

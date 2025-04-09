@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orchestrator-prod-config
+  labels:
+    app: orchestrator-service
+    environment: production
+data:
+  # Production environment configurations
+  # These values would be replaced with actual production values
+  rabbitmq.host: "rabbitmq.production-domain.com"
+  rabbitmq.port: "5672"
+  ship.management.url: "http://ship-management.production-domain.com:8081" 

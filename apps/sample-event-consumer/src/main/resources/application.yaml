@@ -1,0 +1,63 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: sample-event-consumer
+  
+  # Database configuration  
+  datasource:
+    url: jdbc:h2:mem:eventdb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  
+  # JPA configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  
+  # H2 Console configuration  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
+  # RabbitMQ configuration
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# Business Event Manager configuration
+berexia:
+  event:
+    manager:
+      consumers:
+        ship-arrival:
+          enabled: true
+        dap-request:
+          enabled: true
+      rabbit:
+        ship-arrival:
+          queue-name: ship-arrival-queue
+          exchange-name: ship-arrival-exchange
+          routing-key: ship.arrival.event
+        dap-request:
+          queue-name: dap-request-queue
+          exchange-name: dap-request-exchange
+          routing-key: dap.request.event
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.berexia: DEBUG
+    org.springframework.amqp: INFO
+    org.hibernate: INFO 

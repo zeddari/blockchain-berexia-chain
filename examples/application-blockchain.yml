@@ -1,0 +1,65 @@
+spring:
+  # Import environment variables from .env file
+  config:
+    import:
+      - optional:file:.env[.properties]
+  
+  # Database configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/tradechain
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  
+  # JPA configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+  
+  # RabbitMQ configuration
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+# Business Event Manager configuration
+berexia:
+  event:
+    manager:
+      # Enable/disable consumers
+      consumers:
+        ship-arrival:
+          enabled: true
+        dap-request:
+          enabled: true
+      
+      # RabbitMQ queue configuration
+      rabbit:
+        ship-arrival:
+          queue-name: ship-arrival-queue
+          exchange-name: ship-arrival-exchange
+          routing-key: ship.arrival.event
+        dap-request:
+          queue-name: dap-request-queue
+          exchange-name: dap-request-exchange
+          routing-key: dap.request.event
+      
+      # Blockchain integration
+      blockchain:
+        # Enable/disable blockchain integration
+        enabled: ${BLOCKCHAIN_ENABLED:true}
+        # Blockchain node RPC URL
+        rpc-url: ${BLOCKCHAIN_RPC_URL:http://157.173.119.195:8545}
+        # Smart contract addresses
+        ship-arrival-contract: ${SHIP_ARRIVAL_CONTRACT_ADDRESS}
+        dap-contract: ${DAP_CONTRACT_ADDRESS}
+        # Private key for signing transactions
+        private-key: ${BLOCKCHAIN_PRIVATE_KEY}
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.berexia: DEBUG
+    org.springframework.amqp: INFO
+    org.web3j: INFO 

@@ -1,0 +1,326 @@
+{
+  "contractName": "IPortnetEvent",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getEventId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStatus",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getEventId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface for all Portnet events\",\"kind\":\"dev\",\"methods\":{\"getEventId()\":{\"details\":\"Returns the event ID\",\"returns\":{\"_0\":\"The unique identifier for the event\"}},\"getStatus()\":{\"details\":\"Returns the status of the event\",\"returns\":{\"_0\":\"The status string\"}},\"getTimestamp()\":{\"details\":\"Returns the timestamp when the event was recorded on chain\",\"returns\":{\"_0\":\"The timestamp\"}}},\"title\":\"IPortnetEvent\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IPortnetEvent.sol\":\"IPortnetEvent\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPortnetEvent.sol\":{\"keccak256\":\"0x060de7edf9becaf3a5f35b7e4603beb8a42d1ffad2a2a18cbc10ee536f844c6d\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://d5c3b0ad3896e9620700258e9d72bce5e8d89178ecb0a21dcbc848cbc9482b81\",\"dweb:/ipfs/QmaqoH3uSiEUiVzyk5wcGKHCasmV4RA81eBVWQYnGuJ9RK\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.8.17;\r\n\r\n/**\r\n * @title IPortnetEvent\r\n * @dev Interface for all Portnet events\r\n */\r\ninterface IPortnetEvent {\r\n    /**\r\n     * @dev Returns the event ID\r\n     * @return The unique identifier for the event\r\n     */\r\n    function getEventId() external view returns (bytes32);\r\n    \r\n    /**\r\n     * @dev Returns the timestamp when the event was recorded on chain\r\n     * @return The timestamp\r\n     */\r\n    function getTimestamp() external view returns (uint256);\r\n    \r\n    /**\r\n     * @dev Returns the status of the event\r\n     * @return The status string\r\n     */\r\n    function getStatus() external view returns (string memory);\r\n} ",
+  "sourcePath": "D:\\Devs\\repositories\\blockchain\\portnet-solution\\berexia-trade\\blockchain\\berexia-chain\\contracts\\IPortnetEvent.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IPortnetEvent.sol",
+    "exportedSymbols": {
+      "IPortnetEvent": [
+        373
+      ]
+    },
+    "id": 374,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 353,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:24:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IPortnetEvent",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 354,
+          "nodeType": "StructuredDocumentation",
+          "src": "68:75:1",
+          "text": " @title IPortnetEvent\n @dev Interface for all Portnet events"
+        },
+        "fullyImplemented": false,
+        "id": 373,
+        "linearizedBaseContracts": [
+          373
+        ],
+        "name": "IPortnetEvent",
+        "nameLocation": "155:13:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "documentation": {
+              "id": 355,
+              "nodeType": "StructuredDocumentation",
+              "src": "176:98:1",
+              "text": " @dev Returns the event ID\n @return The unique identifier for the event"
+            },
+            "functionSelector": "4a17bbde",
+            "id": 360,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEventId",
+            "nameLocation": "289:10:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 356,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "299:2:1"
+            },
+            "returnParameters": {
+              "id": 359,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 358,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 360,
+                  "src": "325:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 357,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "325:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "324:9:1"
+            },
+            "scope": 373,
+            "src": "280:54:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 361,
+              "nodeType": "StructuredDocumentation",
+              "src": "346:114:1",
+              "text": " @dev Returns the timestamp when the event was recorded on chain\n @return The timestamp"
+            },
+            "functionSelector": "188ec356",
+            "id": 366,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTimestamp",
+            "nameLocation": "475:12:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 362,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "487:2:1"
+            },
+            "returnParameters": {
+              "id": 365,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 364,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 366,
+                  "src": "513:7:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 363,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "513:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "512:9:1"
+            },
+            "scope": 373,
+            "src": "466:56:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 367,
+              "nodeType": "StructuredDocumentation",
+              "src": "534:91:1",
+              "text": " @dev Returns the status of the event\n @return The status string"
+            },
+            "functionSelector": "4e69d560",
+            "id": 372,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nameLocation": "640:9:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 368,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "649:2:1"
+            },
+            "returnParameters": {
+              "id": 371,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 370,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 372,
+                  "src": "675:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 369,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "675:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "674:15:1"
+            },
+            "scope": 373,
+            "src": "631:59:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 374,
+        "src": "145:548:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "40:654:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-04-04T08:47:50.522Z",
+  "devdoc": {
+    "details": "Interface for all Portnet events",
+    "kind": "dev",
+    "methods": {
+      "getEventId()": {
+        "details": "Returns the event ID",
+        "returns": {
+          "_0": "The unique identifier for the event"
+        }
+      },
+      "getStatus()": {
+        "details": "Returns the status of the event",
+        "returns": {
+          "_0": "The status string"
+        }
+      },
+      "getTimestamp()": {
+        "details": "Returns the timestamp when the event was recorded on chain",
+        "returns": {
+          "_0": "The timestamp"
+        }
+      }
+    },
+    "title": "IPortnetEvent",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -1,0 +1,184 @@
+{
+    "info": {
+        "name": "Berexia Trade Microservices",
+        "description": "Collection for Berexia Trade microservices: Orchestrator, Ship, and DAP",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Orchestrator Service",
+            "item": [
+                {
+                    "name": "Start Manifest Workflow",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/workflow/manifest/start",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "workflow", "manifest", "start"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"manifestId\": \"MANIFEST123\",\n    \"shipId\": \"SHIP123\",\n    \"shipName\": \"Ocean Explorer\",\n    \"callId\": \"CALL456\",\n    \"portId\": \"PORT789\",\n    \"portName\": \"Port of Rotterdam\",\n    \"operatorName\": \"Maritime Corp\",\n    \"noticeNumber\": \"NOTICE789\",\n    \"portCode\": \"ROT\",\n    \"expectedArrivalTime\": 1710504000000\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Create Manifest",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/manifests",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "manifests"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"manifestId\": \"MAN-001\",\n    \"shipName\": \"MV Ocean Star\",\n    \"portOfArrival\": \"Tanger Med\",\n    \"estimatedArrivalDate\": \"2024-04-15T10:00:00Z\",\n    \"containers\": [\n        {\n            \"containerNumber\": \"ABCD1234567\",\n            \"sealNumber\": \"SEAL-001\",\n            \"weight\": 25000,\n            \"cargoType\": \"DRY\"\n        }\n    ]\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Manifest",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/manifests/{{manifestId}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "manifests", "{{manifestId}}"]
+                        }
+                    }
+                },
+                {
+                    "name": "Update Manifest Status",
+                    "request": {
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/manifests/{{manifestId}}/status",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "manifests", "{{manifestId}}", "status"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"status\": \"ARRIVED\",\n    \"actualArrivalDate\": \"2024-04-15T09:30:00Z\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Ship Service",
+            "item": [
+                {
+                    "name": "Record Ship Arrival",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/ships/arrivals",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "ships", "arrivals"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"shipName\": \"MV Ocean Star\",\n    \"portOfArrival\": \"Tanger Med\",\n    \"arrivalDate\": \"2024-04-15T09:30:00Z\",\n    \"containers\": [\n        {\n            \"containerNumber\": \"ABCD1234567\",\n            \"sealNumber\": \"SEAL-001\",\n            \"weight\": 25000,\n            \"cargoType\": \"DRY\"\n        }\n    ]\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Ship Arrival",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/ships/arrivals/{{arrivalId}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "ships", "arrivals", "{{arrivalId}}"]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "DAP Service",
+            "item": [
+                {
+                    "name": "Record DAP Event",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                            }
+                        ],
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/dap/events",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "dap", "events"]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"containerNumber\": \"ABCD1234567\",\n    \"eventType\": \"DELIVERY\",\n    \"eventDate\": \"2024-04-16T14:00:00Z\",\n    \"location\": \"Tanger Med\",\n    \"status\": \"COMPLETED\",\n    \"details\": {\n        \"recipient\": \"Consignee Name\",\n        \"documentation\": \"BOL-001\",\n        \"notes\": \"Delivery completed successfully\"\n    }\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get DAP Event",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/api/v1/dap/events/{{eventId}}",
+                            "host": ["{{baseUrl}}"],
+                            "path": ["api", "v1", "dap", "events", "{{eventId}}"]
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080",
+            "type": "string"
+        },
+        {
+            "key": "manifestId",
+            "value": "MAN-001",
+            "type": "string"
+        },
+        {
+            "key": "arrivalId",
+            "value": "ARR-001",
+            "type": "string"
+        },
+        {
+            "key": "eventId",
+            "value": "DAP-001",
+            "type": "string"
+        }
+    ]
+} 

@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dap-service-env-config
+  labels:
+    app: dap-service
+data:
+  # Change this to "prod" for production environment
+  active.profile: "dev" 

@@ -1,0 +1,28 @@
+server:
+  port: 8982
+
+spring:
+  application:
+    name: quay-management-api
+  profiles:
+    active: dev
+
+# Common configuration for all profiles
+# Blockchain configuration
+blockchain:
+  ethereum:
+    rpc:
+      http: http://157.173.119.195:8545
+      ws: ws://157.173.119.195:8546
+
+logging:
+  level:
+    root: INFO
+    com.portnet.dockchain: DEBUG
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operations-sorter: method

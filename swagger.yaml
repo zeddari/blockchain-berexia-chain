@@ -1,0 +1,467 @@
+openapi: 3.0.0
+info:
+  title: BerExia Trade API Documentation
+  version: 1.0.0
+  description: API documentation for the BerExia Trade system
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+  - url: https://api.berexia.com
+    description: Production server
+
+tags:
+  - name: Ship Arrival
+    description: APIs for managing ship arrival processes
+  - name: DAP
+    description: APIs for managing DAP (Demande d'Autorisation Préalable) requests
+  - name: Manifest Workflow
+    description: APIs for managing manifest workflows
+  - name: Blockchain
+    description: APIs for blockchain operations
+  - name: Internal
+    description: Internal APIs for system management
+
+components:
+  schemas:
+    AvisArriveeDto:
+      type: object
+      properties:
+        shipId:
+          type: string
+          description: Unique identifier of the ship
+        shipName:
+          type: string
+          description: Name of the ship
+        callId:
+          type: string
+          description: Call ID for the ship arrival
+        portId:
+          type: string
+          description: Port identifier
+        portName:
+          type: string
+          description: Name of the port
+        operatorName:
+          type: string
+          description: Name of the operator
+        expectedArrivalTime:
+          type: integer
+          format: int64
+          description: Expected arrival time in milliseconds
+        actualArrivalTime:
+          type: integer
+          format: int64
+          description: Actual arrival time in milliseconds
+      required:
+        - shipId
+        - shipName
+        - callId
+        - portId
+        - portName
+        - operatorName
+        - expectedArrivalTime
+
+    ManifestWorkflowRequest:
+      type: object
+      properties:
+        manifestId:
+          type: string
+          description: Unique identifier for the manifest
+        shipId:
+          type: string
+          description: ID of the ship
+        shipName:
+          type: string
+          description: Name of the ship
+        callId:
+          type: string
+          description: Call ID for the ship arrival
+        portId:
+          type: string
+          description: Port ID
+        portName:
+          type: string
+          description: Port name
+        operatorName:
+          type: string
+          description: Operator name
+        noticeNumber:
+          type: string
+          description: DAP notice number
+        portCode:
+          type: string
+          description: Port code
+      required:
+        - manifestId
+        - shipId
+        - shipName
+        - callId
+        - portId
+        - portName
+        - operatorName
+        - noticeNumber
+        - portCode
+
+    WorkflowResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the workflow
+        processInstanceId:
+          type: string
+          description: Process instance ID
+        message:
+          type: string
+          description: Response message
+
+paths:
+  /api/workflow/ships/arrival:
+    post:
+      tags:
+        - Ship Arrival
+      summary: Start Ship Arrival Process
+      description: Initiates a new workflow process for a ship arrival notice
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvisArriveeDto'
+      responses:
+        '200':
+          description: Ship arrival process started successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processInstanceId:
+                    type: string
+                  status:
+                    type: string
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error
+
+  /api/workflow/ships/processes/{processInstanceId}:
+    get:
+      tags:
+        - Ship Arrival
+      summary: Get Process Status
+      description: Retrieves the status of a ship arrival process
+      parameters:
+        - name: processInstanceId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Process status retrieved successfully
+        '404':
+          description: Process not found
+        '500':
+          description: Internal server error
+
+  /api/workflow/manifest/start:
+    post:
+      tags:
+        - Manifest Workflow
+      summary: Start Manifest Workflow
+      description: Start a new manifest workflow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ManifestWorkflowRequest'
+      responses:
+        '200':
+          description: Manifest workflow started successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowResponse'
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error
+
+  /api/workflow/manifest/{manifestId}:
+    get:
+      tags:
+        - Manifest Workflow
+      summary: Get Manifest Workflow Status
+      description: Get the status of a manifest workflow
+      parameters:
+        - name: manifestId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Manifest workflow status retrieved successfully
+        '404':
+          description: Manifest workflow not found
+        '500':
+          description: Internal server error
+
+  /api/workflow/manifest/{manifestId}/ship-arrival:
+    post:
+      tags:
+        - Manifest Workflow
+      summary: Signal Ship Arrival
+      description: Signal a ship arrival event in a running manifest workflow
+      parameters:
+        - name: manifestId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: actualArrivalTime
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Ship arrival signal sent successfully
+        '404':
+          description: Manifest workflow not found
+        '500':
+          description: Internal server error
+
+  /api/workflow/manifest/{manifestId}/dap-status:
+    post:
+      tags:
+        - Manifest Workflow
+      summary: Signal DAP Status Update
+      description: Signal a DAP status update in a running manifest workflow
+      parameters:
+        - name: manifestId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: DAP status update signal sent successfully
+        '404':
+          description: Manifest workflow not found
+        '500':
+          description: Internal server error
+
+  /api/blockchain/deploy/factory:
+    post:
+      tags:
+        - Blockchain
+      summary: Deploy Factory Contract
+      description: Deploy the factory contract
+      responses:
+        '200':
+          description: Factory contract deployed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  factoryAddress:
+                    type: string
+                  status:
+                    type: string
+        '500':
+          description: Internal server error
+
+  /api/blockchain/deploy/all:
+    post:
+      tags:
+        - Blockchain
+      summary: Deploy All Contracts
+      description: Deploy all contracts (ShipArrival and DAP)
+      responses:
+        '200':
+          description: All contracts deployed successfully
+        '500':
+          description: Internal server error
+
+  /api/blockchain/deploy/ship-arrival:
+    post:
+      tags:
+        - Blockchain
+      summary: Deploy Ship Arrival Contract
+      description: Deploy only the ShipArrival contract
+      responses:
+        '200':
+          description: Ship arrival contract deployed successfully
+        '500':
+          description: Internal server error
+
+  /api/blockchain/deploy/dap:
+    post:
+      tags:
+        - Blockchain
+      summary: Deploy DAP Contract
+      description: Deploy only the DAP contract
+      responses:
+        '200':
+          description: DAP contract deployed successfully
+        '500':
+          description: Internal server error
+
+  /api/blockchain/manifest:
+    post:
+      tags:
+        - Blockchain
+      summary: Record Manifest
+      description: Record a manifest on the blockchain
+      parameters:
+        - name: manifestId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: shipId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: shipName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: callId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: portId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: portName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: operatorName
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: noticeNumber
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: expectedArrivalTime
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: actualArrivalTime
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: Manifest recorded successfully
+        '500':
+          description: Internal server error
+
+  /api/blockchain/manifest/{manifestId}/status:
+    put:
+      tags:
+        - Blockchain
+      summary: Update Manifest Status
+      description: Update manifest status
+      parameters:
+        - name: manifestId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: shipId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: noticeNumber
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: status
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Manifest status updated successfully
+        '500':
+          description: Internal server error
+
+  /api/blockchain/manifest/{manifestId}:
+    get:
+      tags:
+        - Blockchain
+      summary: Get Manifest Details
+      description: Get manifest details by manifest ID
+      parameters:
+        - name: manifestId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: shipId
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: noticeNumber
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Manifest details retrieved successfully
+        '500':
+          description: Internal server error
+
+  /api/notify/arrival:
+    post:
+      tags:
+        - Ship Arrival
+      summary: Notify Ship Arrival
+      description: Endpoint for PortNet to communicate ship arrival to TradeChain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AvisArriveeDto'
+      responses:
+        '200':
+          description: Arrival notification sent successfully
+        '400':
+          description: Invalid input
+        '503':
+          description: Service unavailable
+        '500':
+          description: Internal server error 

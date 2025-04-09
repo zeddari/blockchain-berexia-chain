@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orchestrator-env-config
+  labels:
+    app: orchestrator-service
+data:
+  # Change this to "prod" for production environment
+  active.profile: "dev" 

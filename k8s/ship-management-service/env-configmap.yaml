@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ship-management-env-config
+  labels:
+    app: ship-management-service
+data:
+  # Change this to "prod" for production environment
+  active.profile: "dev" 

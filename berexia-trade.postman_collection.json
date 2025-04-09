@@ -1,0 +1,204 @@
+{
+  "info": {
+    "name": "BerExia Trade API Tests",
+    "description": "Collection for testing Orchestrator, Ship Management, and DAP services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Orchestrator Service",
+      "item": [
+        {
+          "name": "Start Manifest Workflow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{orchestrator_base_url}}/api/workflow/manifest/start",
+              "host": ["{{orchestrator_base_url}}"],
+              "path": ["api", "workflow", "manifest", "start"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroAvis\": 12345,\n  \"numeroEscale\": \"ESC001\",\n  \"nomPort\": \"Casablanca\",\n  \"codePort\": \"CASA\",\n  \"nomNavire\": \"Ship Name\",\n  \"nomOperateur\": \"Operator Name\",\n  \"etat\": \"EN_ATTENTE\",\n  \"dateArrivee\": \"2024-03-28T10:00:00\"\n}"
+            },
+            "description": "Start a new manifest workflow"
+          }
+        },
+        {
+          "name": "Signal Ship Arrival",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{orchestrator_base_url}}/api/workflow/manifest/{{manifestId}}/ship-arrival?actualArrivalTime=1648656000000",
+              "host": ["{{orchestrator_base_url}}"],
+              "path": ["api", "workflow", "manifest", "{{manifestId}}", "ship-arrival"],
+              "query": [
+                {
+                  "key": "actualArrivalTime",
+                  "value": "1648656000000"
+                }
+              ]
+            },
+            "description": "Signal a ship arrival event in a running manifest workflow"
+          }
+        },
+        {
+          "name": "Get Manifest Workflow Status",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{orchestrator_base_url}}/api/workflow/manifest/{{manifestId}}",
+              "host": ["{{orchestrator_base_url}}"],
+              "path": ["api", "workflow", "manifest", "{{manifestId}}"]
+            },
+            "description": "Get the status of a manifest workflow"
+          }
+        },
+        {
+          "name": "Test Ship Arrival Contract",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{orchestrator_base_url}}/api/blockchain/test/ship-arrival",
+              "host": ["{{orchestrator_base_url}}"],
+              "path": ["api", "blockchain", "test", "ship-arrival"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroAvis\": 12345,\n  \"numeroEscale\": \"ESC001\",\n  \"nomPort\": \"Casablanca\",\n  \"codePort\": \"CASA\",\n  \"nomNavire\": \"Ship Name\",\n  \"dateArrivee\": \"2024-03-28T10:00:00\",\n  \"etat\": \"EN_ATTENTE\"\n}"
+            },
+            "description": "Test the ship arrival smart contract"
+          }
+        },
+        {
+          "name": "Test DAP Contract",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{orchestrator_base_url}}/api/blockchain/test/dap",
+              "host": ["{{orchestrator_base_url}}"],
+              "path": ["api", "blockchain", "test", "dap"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"noticeNumber\": 12345,\n  \"callNumber\": \"CALL001\",\n  \"portName\": \"Casablanca\",\n  \"portCode\": \"CASA\",\n  \"shipName\": \"Ship Name\",\n  \"operatorName\": \"Operator Name\",\n  \"status\": \"EN_ATTENTE\",\n  \"requestDate\": 1648656000000\n}"
+            },
+            "description": "Test the DAP smart contract"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ship Management Service",
+      "item": [
+        {
+          "name": "Notify Ship Arrival",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{ship_management_base_url}}/api/notify/arrival",
+              "host": ["{{ship_management_base_url}}"],
+              "path": ["api", "notify", "arrival"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroAvis\": 12345,\n  \"numeroEscale\": \"ESC001\",\n  \"nomPort\": \"Casablanca\",\n  \"codePort\": \"CASA\",\n  \"nomNavire\": \"Ship Name\",\n  \"dateArrivee\": \"2024-03-28T10:00:00\",\n  \"etat\": \"EN_ATTENTE\"\n}"
+            },
+            "description": "Notify about a ship arrival event"
+          }
+        },
+        {
+          "name": "Send Test Message",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{ship_management_base_url}}/api/notify/send-message?message=test",
+              "host": ["{{ship_management_base_url}}"],
+              "path": ["api", "notify", "send-message"],
+              "query": [
+                {
+                  "key": "message",
+                  "value": "test"
+                }
+              ]
+            },
+            "description": "Test endpoint for sending messages to the queue"
+          }
+        }
+      ]
+    },
+    {
+      "name": "DAP Service",
+      "item": [
+        {
+          "name": "Create DAP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{dap_base_url}}/api/v1/dap",
+              "host": ["{{dap_base_url}}"],
+              "path": ["api", "v1", "dap"]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numeroAvis\": 12345,\n  \"numeroEscale\": \"ESC001\",\n  \"nomPort\": \"Casablanca\",\n  \"codePort\": \"CASA\",\n  \"nomNavire\": \"Ship Name\",\n  \"nomOperateur\": \"Operator Name\",\n  \"etat\": \"EN_ATTENTE\"\n}"
+            },
+            "description": "Create a new DAP (Docking Request)"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "orchestrator_base_url",
+      "value": "http://localhost:8080",
+      "type": "string"
+    },
+    {
+      "key": "ship_management_base_url",
+      "value": "http://localhost:8981",
+      "type": "string"
+    },
+    {
+      "key": "dap_base_url",
+      "value": "http://localhost:8081",
+      "type": "string"
+    },
+    {
+      "key": "manifestId",
+      "value": "MAN001",
+      "type": "string"
+    }
+  ]
+} 

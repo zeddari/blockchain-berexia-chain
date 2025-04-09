@@ -1,0 +1,1528 @@
+{
+  "contractName": "PortnetEventBase",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "eventId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "recorder",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "EventRecorded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "eventId",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "oldStatus",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "newStatus",
+          "type": "string"
+        }
+      ],
+      "name": "StatusUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "getEventId",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTimestamp",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getStatus",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getRecorder",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"eventId\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"recorder\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"timestamp\",\"type\":\"uint256\"}],\"name\":\"EventRecorded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"eventId\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"oldStatus\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"newStatus\",\"type\":\"string\"}],\"name\":\"StatusUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getEventId\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getRecorder\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTimestamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Base contract for Portnet events\",\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"Constructor to set common properties\",\"params\":{\"eventId\":\"The unique identifier for the event\"}},\"getEventId()\":{\"details\":\"Returns the event ID\",\"returns\":{\"_0\":\"The unique identifier for the event\"}},\"getRecorder()\":{\"details\":\"Returns the address that recorded this event\",\"returns\":{\"_0\":\"The recorder's address\"}},\"getStatus()\":{\"details\":\"Returns the status of the event\",\"returns\":{\"_0\":\"The status string\"}},\"getTimestamp()\":{\"details\":\"Returns the timestamp when the event was recorded on chain\",\"returns\":{\"_0\":\"The timestamp\"}}},\"title\":\"PortnetEventBase\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/PortnetEventBase.sol\":\"PortnetEventBase\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/IPortnetEvent.sol\":{\"keccak256\":\"0x060de7edf9becaf3a5f35b7e4603beb8a42d1ffad2a2a18cbc10ee536f844c6d\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://d5c3b0ad3896e9620700258e9d72bce5e8d89178ecb0a21dcbc848cbc9482b81\",\"dweb:/ipfs/QmaqoH3uSiEUiVzyk5wcGKHCasmV4RA81eBVWQYnGuJ9RK\"]},\"project:/contracts/PortnetEventBase.sol\":{\"keccak256\":\"0x309b71dae0a6dd805df1428a1816fd784f25a95e96ccc22b98a7eaa4492bc69c\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://63631f71e303dd38e63cf0dce8b84c6f12623ba58155d734f7469ac38fbd5ac6\",\"dweb:/ipfs/QmUVpbNExhoyEdQyyNFkhxgroxL1kMaANzeQugf7fY88AQ\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: UNLICENSED\r\npragma solidity ^0.8.17;\r\n\r\nimport \"./IPortnetEvent.sol\";\r\n\r\n/**\r\n * @title PortnetEventBase\r\n * @dev Base contract for Portnet events\r\n */\r\nabstract contract PortnetEventBase is IPortnetEvent {\r\n    // Event emitted when an event is recorded\r\n    event EventRecorded(bytes32 indexed eventId, address indexed recorder, uint256 timestamp);\r\n    \r\n    // Event emitted when an event's status is updated\r\n    event StatusUpdated(bytes32 indexed eventId, string oldStatus, string newStatus);\r\n    \r\n    // Common properties for all events\r\n    bytes32 private _eventId;\r\n    uint256 private _timestamp;\r\n    string private _status;\r\n    address private _recorder;\r\n    \r\n    /**\r\n     * @dev Constructor to set common properties\r\n     * @param eventId The unique identifier for the event\r\n     */\r\n    constructor(bytes32 eventId) {\r\n        _eventId = eventId;\r\n        _timestamp = block.timestamp;\r\n        _recorder = msg.sender;\r\n    }\r\n    \r\n    /**\r\n     * @dev Returns the event ID\r\n     * @return The unique identifier for the event\r\n     */\r\n    function getEventId() external view override returns (bytes32) {\r\n        return _eventId;\r\n    }\r\n    \r\n    /**\r\n     * @dev Returns the timestamp when the event was recorded on chain\r\n     * @return The timestamp\r\n     */\r\n    function getTimestamp() external view override returns (uint256) {\r\n        return _timestamp;\r\n    }\r\n    \r\n    /**\r\n     * @dev Returns the status of the event\r\n     * @return The status string\r\n     */\r\n    function getStatus() external view override returns (string memory) {\r\n        return _status;\r\n    }\r\n    \r\n    /**\r\n     * @dev Returns the address that recorded this event\r\n     * @return The recorder's address\r\n     */\r\n    function getRecorder() external view returns (address) {\r\n        return _recorder;\r\n    }\r\n    \r\n    /**\r\n     * @dev Updates the event's status\r\n     * @param newStatus The new status to set\r\n     */\r\n    function _updateStatus(string memory newStatus) internal {\r\n        string memory oldStatus = _status;\r\n        _status = newStatus;\r\n        emit StatusUpdated(_eventId, oldStatus, newStatus);\r\n    }\r\n    \r\n    /**\r\n     * @dev Records the event on chain\r\n     * Should be called by child contracts after setting specific properties\r\n     */\r\n    function _recordEvent() internal {\r\n        emit EventRecorded(_eventId, _recorder, _timestamp);\r\n    }\r\n} ",
+  "sourcePath": "D:\\Devs\\repositories\\blockchain\\portnet-solution\\berexia-trade\\blockchain\\berexia-chain\\contracts\\PortnetEventBase.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/PortnetEventBase.sol",
+    "exportedSymbols": {
+      "IPortnetEvent": [
+        373
+      ],
+      "PortnetEventBase": [
+        645
+      ]
+    },
+    "id": 646,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 524,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".17"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "40:24:3"
+      },
+      {
+        "absolutePath": "project:/contracts/IPortnetEvent.sol",
+        "file": "./IPortnetEvent.sol",
+        "id": 525,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 646,
+        "sourceUnit": 374,
+        "src": "68:29:3",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": true,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 527,
+              "name": "IPortnetEvent",
+              "nameLocations": [
+                "219:13:3"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 373,
+              "src": "219:13:3"
+            },
+            "id": 528,
+            "nodeType": "InheritanceSpecifier",
+            "src": "219:13:3"
+          }
+        ],
+        "canonicalName": "PortnetEventBase",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": {
+          "id": 526,
+          "nodeType": "StructuredDocumentation",
+          "src": "101:78:3",
+          "text": " @title PortnetEventBase\n @dev Base contract for Portnet events"
+        },
+        "fullyImplemented": true,
+        "id": 645,
+        "linearizedBaseContracts": [
+          645,
+          373
+        ],
+        "name": "PortnetEventBase",
+        "nameLocation": "199:16:3",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "077c9a6b96e4352c25dd28e210601f1b36b9a93891e2b67fa6198c12232bfc94",
+            "id": 536,
+            "name": "EventRecorded",
+            "nameLocation": "294:13:3",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 535,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 530,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "eventId",
+                  "nameLocation": "324:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 536,
+                  "src": "308:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 529,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "308:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 532,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "recorder",
+                  "nameLocation": "349:8:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 536,
+                  "src": "333:24:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 531,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "333:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 534,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "timestamp",
+                  "nameLocation": "367:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 536,
+                  "src": "359:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 533,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "359:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "307:70:3"
+            },
+            "src": "288:90:3"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "8a979ee443e267bf0699140bdad48b1371e276c41b1181861cee23a8f8f326a6",
+            "id": 544,
+            "name": "StatusUpdated",
+            "nameLocation": "452:13:3",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 543,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 538,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "eventId",
+                  "nameLocation": "482:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 544,
+                  "src": "466:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 537,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "466:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 540,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "oldStatus",
+                  "nameLocation": "498:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 544,
+                  "src": "491:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 539,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "491:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 542,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "newStatus",
+                  "nameLocation": "516:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 544,
+                  "src": "509:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 541,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "509:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "465:61:3"
+            },
+            "src": "446:81:3"
+          },
+          {
+            "constant": false,
+            "id": 546,
+            "mutability": "mutable",
+            "name": "_eventId",
+            "nameLocation": "596:8:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 645,
+            "src": "580:24:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 545,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "580:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 548,
+            "mutability": "mutable",
+            "name": "_timestamp",
+            "nameLocation": "627:10:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 645,
+            "src": "611:26:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 547,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "611:7:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 550,
+            "mutability": "mutable",
+            "name": "_status",
+            "nameLocation": "659:7:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 645,
+            "src": "644:22:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 549,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "644:6:3",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 552,
+            "mutability": "mutable",
+            "name": "_recorder",
+            "nameLocation": "689:9:3",
+            "nodeType": "VariableDeclaration",
+            "scope": 645,
+            "src": "673:25:3",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 551,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "673:7:3",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 572,
+              "nodeType": "Block",
+              "src": "867:109:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 560,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 558,
+                      "name": "_eventId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 546,
+                      "src": "878:8:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 559,
+                      "name": "eventId",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 555,
+                      "src": "889:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_bytes32",
+                        "typeString": "bytes32"
+                      }
+                    },
+                    "src": "878:18:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "id": 561,
+                  "nodeType": "ExpressionStatement",
+                  "src": "878:18:3"
+                },
+                {
+                  "expression": {
+                    "id": 565,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 562,
+                      "name": "_timestamp",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 548,
+                      "src": "907:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 563,
+                        "name": "block",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4294967292,
+                        "src": "920:5:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_block",
+                          "typeString": "block"
+                        }
+                      },
+                      "id": 564,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "926:9:3",
+                      "memberName": "timestamp",
+                      "nodeType": "MemberAccess",
+                      "src": "920:15:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "907:28:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 566,
+                  "nodeType": "ExpressionStatement",
+                  "src": "907:28:3"
+                },
+                {
+                  "expression": {
+                    "id": 570,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 567,
+                      "name": "_recorder",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 552,
+                      "src": "946:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 568,
+                        "name": "msg",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 4294967281,
+                        "src": "958:3:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_message",
+                          "typeString": "msg"
+                        }
+                      },
+                      "id": 569,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberLocation": "962:6:3",
+                      "memberName": "sender",
+                      "nodeType": "MemberAccess",
+                      "src": "958:10:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_address",
+                        "typeString": "address"
+                      }
+                    },
+                    "src": "946:22:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "id": 571,
+                  "nodeType": "ExpressionStatement",
+                  "src": "946:22:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 553,
+              "nodeType": "StructuredDocumentation",
+              "src": "711:121:3",
+              "text": " @dev Constructor to set common properties\n @param eventId The unique identifier for the event"
+            },
+            "id": 573,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 556,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 555,
+                  "mutability": "mutable",
+                  "name": "eventId",
+                  "nameLocation": "858:7:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 573,
+                  "src": "850:15:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 554,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "850:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "849:17:3"
+            },
+            "returnParameters": {
+              "id": 557,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "867:0:3"
+            },
+            "scope": 645,
+            "src": "838:138:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "baseFunctions": [
+              360
+            ],
+            "body": {
+              "id": 582,
+              "nodeType": "Block",
+              "src": "1155:34:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 580,
+                    "name": "_eventId",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 546,
+                    "src": "1173:8:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "functionReturnParameters": 579,
+                  "id": 581,
+                  "nodeType": "Return",
+                  "src": "1166:15:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 574,
+              "nodeType": "StructuredDocumentation",
+              "src": "988:98:3",
+              "text": " @dev Returns the event ID\n @return The unique identifier for the event"
+            },
+            "functionSelector": "4a17bbde",
+            "id": 583,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getEventId",
+            "nameLocation": "1101:10:3",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 576,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1128:8:3"
+            },
+            "parameters": {
+              "id": 575,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1111:2:3"
+            },
+            "returnParameters": {
+              "id": 579,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 578,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 583,
+                  "src": "1146:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  },
+                  "typeName": {
+                    "id": 577,
+                    "name": "bytes32",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1146:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes32",
+                      "typeString": "bytes32"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1145:9:3"
+            },
+            "scope": 645,
+            "src": "1092:97:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "baseFunctions": [
+              366
+            ],
+            "body": {
+              "id": 592,
+              "nodeType": "Block",
+              "src": "1386:36:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 590,
+                    "name": "_timestamp",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 548,
+                    "src": "1404:10:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 589,
+                  "id": 591,
+                  "nodeType": "Return",
+                  "src": "1397:17:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 584,
+              "nodeType": "StructuredDocumentation",
+              "src": "1201:114:3",
+              "text": " @dev Returns the timestamp when the event was recorded on chain\n @return The timestamp"
+            },
+            "functionSelector": "188ec356",
+            "id": 593,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTimestamp",
+            "nameLocation": "1330:12:3",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 586,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1359:8:3"
+            },
+            "parameters": {
+              "id": 585,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1342:2:3"
+            },
+            "returnParameters": {
+              "id": 589,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 588,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 593,
+                  "src": "1377:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 587,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1377:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1376:9:3"
+            },
+            "scope": 645,
+            "src": "1321:101:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "baseFunctions": [
+              372
+            ],
+            "body": {
+              "id": 602,
+              "nodeType": "Block",
+              "src": "1599:33:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 600,
+                    "name": "_status",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 550,
+                    "src": "1617:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "functionReturnParameters": 599,
+                  "id": 601,
+                  "nodeType": "Return",
+                  "src": "1610:14:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 594,
+              "nodeType": "StructuredDocumentation",
+              "src": "1434:91:3",
+              "text": " @dev Returns the status of the event\n @return The status string"
+            },
+            "functionSelector": "4e69d560",
+            "id": 603,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getStatus",
+            "nameLocation": "1540:9:3",
+            "nodeType": "FunctionDefinition",
+            "overrides": {
+              "id": 596,
+              "nodeType": "OverrideSpecifier",
+              "overrides": [],
+              "src": "1566:8:3"
+            },
+            "parameters": {
+              "id": 595,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1549:2:3"
+            },
+            "returnParameters": {
+              "id": 599,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 598,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 603,
+                  "src": "1584:13:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 597,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1584:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1583:15:3"
+            },
+            "scope": 645,
+            "src": "1531:101:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 611,
+              "nodeType": "Block",
+              "src": "1814:35:3",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 609,
+                    "name": "_recorder",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 552,
+                    "src": "1832:9:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "functionReturnParameters": 608,
+                  "id": 610,
+                  "nodeType": "Return",
+                  "src": "1825:16:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 604,
+              "nodeType": "StructuredDocumentation",
+              "src": "1644:109:3",
+              "text": " @dev Returns the address that recorded this event\n @return The recorder's address"
+            },
+            "functionSelector": "b6c3afca",
+            "id": 612,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getRecorder",
+            "nameLocation": "1768:11:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 605,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1779:2:3"
+            },
+            "returnParameters": {
+              "id": 608,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 607,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 612,
+                  "src": "1805:7:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 606,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1805:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1804:9:3"
+            },
+            "scope": 645,
+            "src": "1759:90:3",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 632,
+              "nodeType": "Block",
+              "src": "2023:143:3",
+              "statements": [
+                {
+                  "assignments": [
+                    619
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 619,
+                      "mutability": "mutable",
+                      "name": "oldStatus",
+                      "nameLocation": "2048:9:3",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 632,
+                      "src": "2034:23:3",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string"
+                      },
+                      "typeName": {
+                        "id": 618,
+                        "name": "string",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "2034:6:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_storage_ptr",
+                          "typeString": "string"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 621,
+                  "initialValue": {
+                    "id": 620,
+                    "name": "_status",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 550,
+                    "src": "2060:7:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "2034:33:3"
+                },
+                {
+                  "expression": {
+                    "id": 624,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 622,
+                      "name": "_status",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 550,
+                      "src": "2078:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_storage",
+                        "typeString": "string storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 623,
+                      "name": "newStatus",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 615,
+                      "src": "2088:9:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_string_memory_ptr",
+                        "typeString": "string memory"
+                      }
+                    },
+                    "src": "2078:19:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage",
+                      "typeString": "string storage ref"
+                    }
+                  },
+                  "id": 625,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2078:19:3"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 627,
+                        "name": "_eventId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 546,
+                        "src": "2127:8:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 628,
+                        "name": "oldStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 619,
+                        "src": "2137:9:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "id": 629,
+                        "name": "newStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 615,
+                        "src": "2148:9:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 626,
+                      "name": "StatusUpdated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 544,
+                      "src": "2113:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bytes32,string memory,string memory)"
+                      }
+                    },
+                    "id": 630,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2113:45:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 631,
+                  "nodeType": "EmitStatement",
+                  "src": "2108:50:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 613,
+              "nodeType": "StructuredDocumentation",
+              "src": "1861:99:3",
+              "text": " @dev Updates the event's status\n @param newStatus The new status to set"
+            },
+            "id": 633,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_updateStatus",
+            "nameLocation": "1975:13:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 616,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 615,
+                  "mutability": "mutable",
+                  "name": "newStatus",
+                  "nameLocation": "2003:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 633,
+                  "src": "1989:23:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 614,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1989:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1988:25:3"
+            },
+            "returnParameters": {
+              "id": 617,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2023:0:3"
+            },
+            "scope": 645,
+            "src": "1966:200:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 643,
+              "nodeType": "Block",
+              "src": "2347:70:3",
+              "statements": [
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 638,
+                        "name": "_eventId",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 546,
+                        "src": "2377:8:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        }
+                      },
+                      {
+                        "id": 639,
+                        "name": "_recorder",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 552,
+                        "src": "2387:9:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 640,
+                        "name": "_timestamp",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 548,
+                        "src": "2398:10:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bytes32",
+                          "typeString": "bytes32"
+                        },
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 637,
+                      "name": "EventRecorded",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 536,
+                      "src": "2363:13:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_bytes32_$_t_address_$_t_uint256_$returns$__$",
+                        "typeString": "function (bytes32,address,uint256)"
+                      }
+                    },
+                    "id": 641,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2363:46:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 642,
+                  "nodeType": "EmitStatement",
+                  "src": "2358:51:3"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 634,
+              "nodeType": "StructuredDocumentation",
+              "src": "2178:130:3",
+              "text": " @dev Records the event on chain\n Should be called by child contracts after setting specific properties"
+            },
+            "id": 644,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_recordEvent",
+            "nameLocation": "2323:12:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 635,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2335:2:3"
+            },
+            "returnParameters": {
+              "id": 636,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2347:0:3"
+            },
+            "scope": 645,
+            "src": "2314:103:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 646,
+        "src": "181:2239:3",
+        "usedErrors": []
+      }
+    ],
+    "src": "40:2381:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2025-04-04T08:47:50.524Z",
+  "devdoc": {
+    "details": "Base contract for Portnet events",
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "details": "Constructor to set common properties",
+        "params": {
+          "eventId": "The unique identifier for the event"
+        }
+      },
+      "getEventId()": {
+        "details": "Returns the event ID",
+        "returns": {
+          "_0": "The unique identifier for the event"
+        }
+      },
+      "getRecorder()": {
+        "details": "Returns the address that recorded this event",
+        "returns": {
+          "_0": "The recorder's address"
+        }
+      },
+      "getStatus()": {
+        "details": "Returns the status of the event",
+        "returns": {
+          "_0": "The status string"
+        }
+      },
+      "getTimestamp()": {
+        "details": "Returns the timestamp when the event was recorded on chain",
+        "returns": {
+          "_0": "The timestamp"
+        }
+      }
+    },
+    "title": "PortnetEventBase",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

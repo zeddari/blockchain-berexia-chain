@@ -1,0 +1,10 @@
+{
+  "network": "berexia",
+  "deploymentDate": "2025-04-08T10:54:27.679Z",
+  "deployer": "0xFE3B557E8Fb62b89F4916B721be55cEb828dBd73",
+  "contracts": {
+    "factory": "0x0f908B9E910492958c6EaA269002AAf6Ae8F11bF",
+    "shipArrival": "0xC6372340F5fC6022d7580c3fEf1710B07f068C25",
+    "dap": "0xf3A64adCd7f7aFe83dC46FBAcdCEfD6c84c30f7D"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "name": "berexia-chain",
+  "version": "1.0.0",
+  "description": "Smart contracts for the Berexia Trade blockchain integration",
+  "main": "index.js",
+  "scripts": {
+    "compile": "truffle compile",
+    "deploy": "node scripts/deploy.js",
+    "test": "truffle test",
+    "solhint": "solhint 'contracts/**/*.sol'"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "smart-contracts",
+    "solidity",
+    "berexia",
+    "trade"
+  ],
+  "author": "Berexia",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.1.15",
+    "dotenv": "^16.3.1",
+    "web3": "^1.10.0"
+  },
+  "devDependencies": {
+    "solhint": "^3.6.2",
+    "truffle": "^5.11.5"
+  }
+} 
